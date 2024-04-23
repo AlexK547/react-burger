@@ -1,5 +1,7 @@
 import './App.css';
-import AppHeader from './components/app-header/App-Header';
+import AppHeader from './components/app-header/app-header';
+
+
 
 function App() {
   return (
