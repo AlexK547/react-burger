@@ -1,0 +1,86 @@
+.ingredients {
+    width: 600px;
+
+}
+
+h1 {
+    margin-top: 40px;
+    font-family: "JetBrains Mono", sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 111%;
+    color: #f2f2f3;
+}
+h2 {
+    margin-top: 40px;
+    font-family: "JetBrains Mono", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 125%;
+    color: #f2f2f3;
+}
+
+.tabs {
+    margin-top: 20px;
+    display: flex;
+}
+.tabs__item {
+    width: 200px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "JetBrains Mono", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    text-align: center;
+    color: #8585ad;
+}
+.tabs__item_select {
+    color: #f2f2f3;
+}
+
+.items {
+    height: 716px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+}
+
+.cards {
+    margin-top: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+.card {
+    position: relative;
+    width: 272px;
+    height: 208px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.card__price {
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+}
+.card__price p {
+    margin-right: 8px;
+    font-family: "Iceland", sans-serif;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 86%;
+    text-align: center;
+    color: #f2f2f3;
+}
+.card__description {
+    margin-top: 4px;
+    font-family: "JetBrains Mono", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    text-align: center;
+    color: #f2f2f3;
+}
