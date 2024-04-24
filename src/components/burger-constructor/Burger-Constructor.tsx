@@ -1,21 +1,35 @@
 import React, { useState } from "react";
 import styles from "./burger-constructor.module.css";
-import { data } from "../../utils/data";
 import {
   CurrencyIcon,
-  DragIcon,
   LockIcon,
 } from "@ya.praktikum/react-developer-burger-ui-components";
 import Component from "./component";
 
-export default function BurgerConstructor() {
-  const listBuns = data.filter((item) => item.type === "bun");
-  const listSauces = data.filter((item) => item.type === "sauce");
-  const listMains = data.filter((item) => item.type === "main");
+type BurgerConstructorProps = {
+  listData: {
+    "_id": string,
+    "name": string,
+    "type": string,
+    "proteins": number,
+    "fat": number,
+    "carbohydrates": number,
+    "calories": number,
+    "price": number,
+    "image": string,
+    "image_mobile": string,
+    "image_large": string,
+    "__v": number
+  }[]
+}
+
+export default function BurgerConstructor(props: BurgerConstructorProps) {
+  const listBuns = props.listData.filter((item) => item.type === "bun");
+  const listSauces = props.listData.filter((item) => item.type === "sauce");
+  const listMains = props.listData.filter((item) => item.type === "main");
   const [buns, setBuns] = useState(listBuns);
   const [sauces, setSauces] = useState(listSauces);
   const [mains, setMains] = useState(listMains);
-  console.log(mains.length);
 
   return (
     <section className={styles["burger-constructor"]}>

@@ -1,11 +1,27 @@
 import React, { useState } from "react";
 import styles from "./burger-ingredients.module.css"
-import { data } from "../../utils/data";
 import Card from "./card";
 
-export default function BurgerIngredients() {
-  const listBuns = data.filter((item) => item.type === "bun");
-  const listSauces = data.filter((item) => item.type === "sauce");
+type BurgerIngredientsProps = {
+  listData: {
+    "_id": string,
+    "name": string,
+    "type": string,
+    "proteins": number,
+    "fat": number,
+    "carbohydrates": number,
+    "calories": number,
+    "price": number,
+    "image": string,
+    "image_mobile": string,
+    "image_large": string,
+    "__v": number
+  }[]
+}
+
+export default function BurgerIngredients(props: BurgerIngredientsProps) {
+  const listBuns = props.listData.filter((item) => item.type === "bun");
+  const listSauces = props.listData.filter((item) => item.type === "sauce");
   const [buns, setBuns] = useState(listBuns);
   const [sauces, setSauces] = useState(listSauces);
 

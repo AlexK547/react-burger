@@ -7,12 +7,23 @@ import {
 
 type CardProps = {
   item: {
-    
+    "_id": string,
+    "name": string,
+    "type": string,
+    "proteins": number,
+    "fat": number,
+    "carbohydrates": number,
+    "calories": number,
+    "price": number,
+    "image": string,
+    "image_mobile": string,
+    "image_large": string,
+    "__v": number
   },
   count: number
 }
 
-export default function Card( {item, count}: any) {
+export default function Card( {item, count}: CardProps) {
   return (
     <div className={styles.card}>
     {count > 0 && (<Counter count={count} size="default" extraClass="m-1" />)}

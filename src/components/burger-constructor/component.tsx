@@ -2,7 +2,25 @@ import React from 'react'
 import styles from "./burger-constructor.module.css"
 import { CurrencyIcon, DeleteIcon, DragIcon } from '@ya.praktikum/react-developer-burger-ui-components'
 
-export default function Component({item, isDragIcon} : any) {
+type ComponentProps = {
+  item: {
+    "_id": string,
+    "name": string,
+    "type": string,
+    "proteins": number,
+    "fat": number,
+    "carbohydrates": number,
+    "calories": number,
+    "price": number,
+    "image": string,
+    "image_mobile": string,
+    "image_large": string,
+    "__v": number
+  },
+  isDragIcon: boolean
+}
+
+export default function Component({item, isDragIcon}: ComponentProps) {
   return (
     <div className={styles.component}>
     <DragIcon type="primary" />
