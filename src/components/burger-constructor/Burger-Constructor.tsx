@@ -5,23 +5,24 @@ import {
   LockIcon,
 } from "@ya.praktikum/react-developer-burger-ui-components";
 import Component from "./component";
+import Modal from "../modal/modal";
 
 type BurgerConstructorProps = {
   listData: {
-    "_id": string,
-    "name": string,
-    "type": string,
-    "proteins": number,
-    "fat": number,
-    "carbohydrates": number,
-    "calories": number,
-    "price": number,
-    "image": string,
-    "image_mobile": string,
-    "image_large": string,
-    "__v": number
-  }[]
-}
+    _id: string;
+    name: string;
+    type: string;
+    proteins: number;
+    fat: number;
+    carbohydrates: number;
+    calories: number;
+    price: number;
+    image: string;
+    image_mobile: string;
+    image_large: string;
+    __v: number;
+  }[];
+};
 
 export default function BurgerConstructor(props: BurgerConstructorProps) {
   const listBuns = props.listData.filter((item) => item.type === "bun");
@@ -30,9 +31,22 @@ export default function BurgerConstructor(props: BurgerConstructorProps) {
   const [buns, setBuns] = useState(listBuns);
   const [sauces, setSauces] = useState(listSauces);
   const [mains, setMains] = useState(listMains);
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [itemModal, setItemModal] = useState({});
+
+  const openModal = (item: any) => {
+    setIsOpenModal(true);
+    setItemModal(item);
+  };
 
   return (
     <section className={styles["burger-constructor"]}>
+      <Modal
+        isOpen={isOpenModal}
+        setOpen={setIsOpenModal}
+        itemModal={itemModal}
+        clearItem={setItemModal}
+      ></Modal>
       <div className={styles.components}>
         <div className={styles.component}>
           {/* <DragIcon type="primary" /> */}
@@ -55,13 +69,48 @@ export default function BurgerConstructor(props: BurgerConstructorProps) {
         </div>
 
         <div className={styles.component__items}>
-          <Component key={0} item={sauces[1]} isDragIcon={true} />
-          <Component key={1} item={mains[2]} isDragIcon={true} />
-          <Component key={2} item={mains[3]} isDragIcon={true} />
-          <Component key={3} item={mains[4]} isDragIcon={true} />
-          <Component key={4} item={mains[4]} isDragIcon={true} />
-          <Component key={5} item={mains[5]} isDragIcon={true} />
-          <Component key={6} item={mains[6]} isDragIcon={true} />
+          <Component
+            key={0}
+            item={sauces[1]}
+            isDragIcon={true}
+            openModal={openModal}
+          />
+          <Component
+            key={1}
+            item={mains[2]}
+            isDragIcon={true}
+            openModal={openModal}
+          />
+          <Component
+            key={2}
+            item={mains[3]}
+            isDragIcon={true}
+            openModal={openModal}
+          />
+          <Component
+            key={3}
+            item={mains[4]}
+            isDragIcon={true}
+            openModal={openModal}
+          />
+          <Component
+            key={4}
+            item={mains[4]}
+            isDragIcon={true}
+            openModal={openModal}
+          />
+          <Component
+            key={5}
+            item={mains[5]}
+            isDragIcon={true}
+            openModal={openModal}
+          />
+          <Component
+            key={6}
+            item={mains[6]}
+            isDragIcon={true}
+            openModal={openModal}
+          />
         </div>
 
         <div className={styles.component}>
