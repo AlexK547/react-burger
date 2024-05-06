@@ -42,7 +42,7 @@ function App() {
       <main className="main">
         {!data.loading && !data.hasError && data.productData.length && (
           <>
-            <BurgerIngredients listData={data.productData} />
+            <BurgerIngredients listData={data.productData}/>
             <BurgerConstructor listData={data.productData} />
           </>
         )}
