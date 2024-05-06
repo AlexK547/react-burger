@@ -6,7 +6,7 @@ import {
   LockIcon,
 } from "@ya.praktikum/react-developer-burger-ui-components";
 import Component from "./component";
-import Modal from "../modal/modal";
+import IngredientDetails from "../ingredient-details/ingredient-details";
 
 type BurgerConstructorProps = {
   listData: {
@@ -42,12 +42,12 @@ export default function BurgerConstructor(props: BurgerConstructorProps) {
 
   return (
     <section className={styles["burger-constructor"]}>
-      {itemModal && <Modal
+      {itemModal && <IngredientDetails
         isOpen={isOpenModal}
         setOpen={setIsOpenModal}
         itemModal={itemModal}
         clearItem={setItemModal}
-      ></Modal>}
+      ></IngredientDetails>}
       <div className={styles.components}>
         <div style={{ marginLeft: "30px" }}>
           <ConstructorElement

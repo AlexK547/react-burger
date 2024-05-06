@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./burger-ingredients.module.css";
 import Card from "./card";
-import Modal from "../modal/modal";
+import IngredientDetails from "../ingredient-details/ingredient-details";
 
 type BurgerIngredientsProps = {
   listData: {
@@ -35,12 +35,14 @@ export default function BurgerIngredients(props: BurgerIngredientsProps) {
 
   return (
     <section className={styles.ingredients}>
-      {itemModal && <Modal
-        isOpen={isOpenModal}
-        setOpen={setIsOpenModal}
-        itemModal={itemModal}
-        clearItem={setItemModal}
-      ></Modal>}
+      {itemModal && (
+        <IngredientDetails
+          isOpen={isOpenModal}
+          setOpen={setIsOpenModal}
+          itemModal={itemModal}
+          clearItem={setItemModal}
+        ></IngredientDetails>
+      )}
       <h1>Соберите бургер</h1>
       <ul className={styles.tabs}>
         <li className={`${styles.tabs__item} ${styles.tabs__item_select}`}>
