@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./burger-constructor.module.css";
 import {
+  ConstructorElement,
   CurrencyIcon,
   LockIcon,
 } from "@ya.praktikum/react-developer-burger-ui-components";
@@ -48,89 +49,69 @@ export default function BurgerConstructor(props: BurgerConstructorProps) {
         clearItem={setItemModal}
       ></Modal>
       <div className={styles.components}>
-        <div className={styles.component}>
-          {/* <DragIcon type="primary" /> */}
-          <div style={{ width: "26px" }}></div>
-          <div className={styles.ingredient}>
-            <img
-              className={styles.ingredient__img}
-              src={buns[0]["image"]}
-              alt="img"
-            />
-            <p className={styles.ingredient__description}>
-              {buns[0].name + " (верх)"}
-            </p>
-            <div className={styles.ingredient__price}>
-              <p>{buns[0].price}</p>
-              <CurrencyIcon type="primary" />
-            </div>
-            <LockIcon type="secondary" />
-          </div>
+        <div style={{ marginLeft: "30px" }}>
+          <ConstructorElement
+            type="top"
+            isLocked={true}
+            text={buns[0].name + " (верх)"}
+            price={buns[0].price}
+            thumbnail={buns[0]["image"]}
+          />
         </div>
 
         <div className={styles.component__items}>
           <Component
-            key={0}
+            key={sauces[1]._id}
             item={sauces[1]}
             isDragIcon={true}
             openModal={openModal}
           />
           <Component
-            key={1}
+            key={mains[2]._id}
             item={mains[2]}
             isDragIcon={true}
             openModal={openModal}
           />
           <Component
-            key={2}
+            key={mains[3]._id}
             item={mains[3]}
             isDragIcon={true}
             openModal={openModal}
           />
           <Component
-            key={3}
+            key={mains[4]._id}
             item={mains[4]}
             isDragIcon={true}
             openModal={openModal}
           />
           <Component
-            key={4}
+            key={mains[4]._id}
             item={mains[4]}
             isDragIcon={true}
             openModal={openModal}
           />
           <Component
-            key={5}
+            key={mains[5]._id}
             item={mains[5]}
             isDragIcon={true}
             openModal={openModal}
           />
           <Component
-            key={6}
+            key={mains[6]._id}
             item={mains[6]}
             isDragIcon={true}
             openModal={openModal}
           />
         </div>
 
-        <div className={styles.component}>
-          {/* <DragIcon type="primary" /> */}
-          <div style={{ width: "26px" }}></div>
-          <div className={styles.ingredient}>
-            <img
-              className={styles.ingredient__img}
-              src={buns[0]["image"]}
-              alt="img"
-            />
-            <p className={styles.ingredient__description}>
-              {buns[0].name + " (низ)"}
-            </p>
-            <div className={styles.ingredient__price}>
-              <p>{buns[0].price}</p>
-              <CurrencyIcon type="primary" />
-            </div>
-            <LockIcon type="secondary" />
-          </div>
+        <div style={{ marginLeft: "30px" }}>
+          <ConstructorElement
+            type="bottom"
+            isLocked={true}
+            text={buns[0].name + " (низ)"}
+            price={buns[0].price}
+            thumbnail={buns[0]["image"]}
+          />
         </div>
       </div>
 

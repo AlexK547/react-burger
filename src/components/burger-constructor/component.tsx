@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./burger-constructor.module.css";
 import {
+  ConstructorElement,
   CurrencyIcon,
   DeleteIcon,
   DragIcon,
@@ -37,17 +38,11 @@ export default function Component({
   return (
     <div className={styles.component} onClick={press}>
       <DragIcon type="primary" />
-      <div className={styles.ingredient}>
-        <img className={styles.ingredient__img} src={item["image"]} alt="img" />
-        <p className={styles.ingredient__description}>{item.name}</p>
-        <div className={styles.ingredient__price}>
-          <p>{item.price}</p>
-          <CurrencyIcon type="primary" />
-        </div>
-        <div style={{ width: "26px" }}>
-          <DeleteIcon type="primary" />
-        </div>
-      </div>
+      <ConstructorElement
+        text={item.name}
+        price={item.price}
+        thumbnail={item["image"]}
+      />
     </div>
   );
 }

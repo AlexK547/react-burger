@@ -18,6 +18,7 @@
     display: flex;
     align-items: center;
     gap: 6px;
+    cursor: pointer;
 }
 .component__items {
     height: 464px;
