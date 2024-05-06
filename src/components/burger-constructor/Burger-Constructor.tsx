@@ -7,6 +7,7 @@ import {
 } from "@ya.praktikum/react-developer-burger-ui-components";
 import Component from "./component";
 import IngredientDetails from "../ingredient-details/ingredient-details";
+import OrderDetails from "../order-details/order-details";
 
 type BurgerConstructorProps = {
   listData: {
@@ -34,6 +35,7 @@ export default function BurgerConstructor(props: BurgerConstructorProps) {
   const [mains, setMains] = useState(listMains);
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [itemModal, setItemModal] = useState(null);
+  const [isOpenOrderDetails, setIsOpenOrderDetails] = useState(false);
 
   const openModal = (item: any) => {
     setIsOpenModal(true);
@@ -42,12 +44,19 @@ export default function BurgerConstructor(props: BurgerConstructorProps) {
 
   return (
     <section className={styles["burger-constructor"]}>
-      {itemModal && <IngredientDetails
-        isOpen={isOpenModal}
-        setOpen={setIsOpenModal}
-        itemModal={itemModal}
-        clearItem={setItemModal}
-      ></IngredientDetails>}
+      {itemModal && (
+        <IngredientDetails
+          isOpen={isOpenModal}
+          setOpen={setIsOpenModal}
+          itemModal={itemModal}
+          clearItem={setItemModal}
+        ></IngredientDetails>
+      )}
+      <OrderDetails
+        setOpen={setIsOpenOrderDetails}
+        isOpen={isOpenOrderDetails}
+      />
+
       <div className={styles.components}>
         <div style={{ marginLeft: "30px" }}>
           <ConstructorElement
@@ -120,7 +129,11 @@ export default function BurgerConstructor(props: BurgerConstructorProps) {
           <p>{610}</p>
           <CurrencyIcon type="primary" />
         </div>
-        <button type="button" className={styles.info__btn}>
+        <button
+          type="button"
+          className={styles.info__btn}
+          onClick={() => setIsOpenOrderDetails(true)}
+        >
           Оформить заказ
         </button>
       </div>
