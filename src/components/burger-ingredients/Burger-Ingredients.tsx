@@ -26,7 +26,7 @@ export default function BurgerIngredients(props: BurgerIngredientsProps) {
   const [buns, setBuns] = useState(listBuns);
   const [sauces, setSauces] = useState(listSauces);
   const [isOpenModal, setIsOpenModal] = useState(false);
-  const [itemModal, setItemModal] = useState({});
+  const [itemModal, setItemModal] = useState(null);
 
   const openModal = (item: any) => {
     setIsOpenModal(true);
@@ -35,12 +35,12 @@ export default function BurgerIngredients(props: BurgerIngredientsProps) {
 
   return (
     <section className={styles.ingredients}>
-      <Modal
+      {itemModal && <Modal
         isOpen={isOpenModal}
         setOpen={setIsOpenModal}
         itemModal={itemModal}
         clearItem={setItemModal}
-      ></Modal>
+      ></Modal>}
       <h1>Соберите бургер</h1>
       <ul className={styles.tabs}>
         <li className={`${styles.tabs__item} ${styles.tabs__item_select}`}>

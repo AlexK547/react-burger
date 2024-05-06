@@ -33,7 +33,7 @@ export default function BurgerConstructor(props: BurgerConstructorProps) {
   const [sauces, setSauces] = useState(listSauces);
   const [mains, setMains] = useState(listMains);
   const [isOpenModal, setIsOpenModal] = useState(false);
-  const [itemModal, setItemModal] = useState({});
+  const [itemModal, setItemModal] = useState(null);
 
   const openModal = (item: any) => {
     setIsOpenModal(true);
@@ -42,12 +42,12 @@ export default function BurgerConstructor(props: BurgerConstructorProps) {
 
   return (
     <section className={styles["burger-constructor"]}>
-      <Modal
+      {itemModal && <Modal
         isOpen={isOpenModal}
         setOpen={setIsOpenModal}
         itemModal={itemModal}
         clearItem={setItemModal}
-      ></Modal>
+      ></Modal>}
       <div className={styles.components}>
         <div style={{ marginLeft: "30px" }}>
           <ConstructorElement
@@ -61,43 +61,43 @@ export default function BurgerConstructor(props: BurgerConstructorProps) {
 
         <div className={styles.component__items}>
           <Component
-            key={sauces[1]._id}
+            key={1}
             item={sauces[1]}
             isDragIcon={true}
             openModal={openModal}
           />
           <Component
-            key={mains[2]._id}
+            key={2}
             item={mains[2]}
             isDragIcon={true}
             openModal={openModal}
           />
           <Component
-            key={mains[3]._id}
+            key={3}
             item={mains[3]}
             isDragIcon={true}
             openModal={openModal}
           />
           <Component
-            key={mains[4]._id}
+            key={4}
             item={mains[4]}
             isDragIcon={true}
             openModal={openModal}
           />
           <Component
-            key={mains[4]._id}
+            key={5}
             item={mains[4]}
             isDragIcon={true}
             openModal={openModal}
           />
           <Component
-            key={mains[5]._id}
+            key={6}
             item={mains[5]}
             isDragIcon={true}
             openModal={openModal}
           />
           <Component
-            key={mains[6]._id}
+            key={7}
             item={mains[6]}
             isDragIcon={true}
             openModal={openModal}

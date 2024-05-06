@@ -1,14 +1,43 @@
 import { createPortal } from "react-dom";
 import styles from "./modal.module.css";
+import { KeyboardEventHandler, useEffect } from "react";
 
 const modalRoot = document.getElementById("react-modals");
 
-export default function Modal({ isOpen, setOpen, itemModal, clearItem }) {
-  const pressClose = (e) => {
-    clearItem({});
-  };
+type ModalProps = {
+  isOpen: boolean,
+  setOpen: Function,
+  itemModal: {
+    _id: string;
+    name: string;
+    type: string;
+    proteins: number;
+    fat: number;
+    carbohydrates: number;
+    calories: number;
+    price: number;
+    image: string;
+    image_mobile: string;
+    image_large: string;
+    __v: number;
+  },
+  clearItem: Function
+}
 
-  return createPortal(
+export default function Modal({ isOpen, setOpen, itemModal, clearItem }: ModalProps) {
+
+  useEffect(() => {
+    const pressESC: any = (e: any) => {
+      if (e.keyCode == 27) {
+          setOpen(false)
+      }
+    }
+    document.addEventListener('keydown', pressESC);
+
+    return () => document.removeEventListener('keydown', pressESC);
+  }, [])
+
+  return modalRoot && createPortal(
     <>
       {isOpen && (
         <div className={styles["modal-overlay"]} onClick={() => setOpen(false)}>
