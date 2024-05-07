@@ -28,6 +28,10 @@
     flex-direction: column;
     gap: 16px;
 }
+.component_top-bottom {
+    margin-left: 30px;
+}
+
 .ingredient {
     padding-left: 24px;
     padding-right: 32px;

@@ -46,7 +46,7 @@ export default function BurgerConstructor(props: BurgerConstructorProps) {
       />
 
       <div className={styles.components}>
-        <div style={{ marginLeft: "30px" }}>
+        <div className={styles["component_top-bottom"]}>
           <ConstructorElement
             type="top"
             isLocked={true}
@@ -101,7 +101,7 @@ export default function BurgerConstructor(props: BurgerConstructorProps) {
           />
         </div>
 
-        <div style={{ marginLeft: "30px" }}>
+        <div className={styles["component_top-bottom"]}>
           <ConstructorElement
             type="bottom"
             isLocked={true}

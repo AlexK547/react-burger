@@ -24,19 +24,16 @@ export default function OrderDetails({ isOpen, setOpen }: OrderDetailsProps) {
 
   const handleClick = (e: any) => {
     if (!e.target.closest("[data-id=modal]")) {
-      setOpen(false)
+      setOpen(false);
     }
-  }
+  };
 
   return (
     orderRoot &&
     createPortal(
       isOpen && (
         <>
-          <div
-            className={styles["order-details"]}
-            onClick={handleClick}
-          >
+          <div className={styles["order-details"]} onClick={handleClick}>
             <div className={styles["order-details__card"]} data-id="modal">
               <div className={styles["order-details__head"]}>
                 <svg
