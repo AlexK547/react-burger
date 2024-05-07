@@ -2,22 +2,10 @@ import React, { useState } from "react";
 import styles from "./burger-ingredients.module.css";
 import Card from "./card";
 import IngredientDetails from "../ingredient-details/ingredient-details";
+import { ingredientType } from "../../utils/types";
 
 type BurgerIngredientsProps = {
-  listData: {
-    _id: string;
-    name: string;
-    type: string;
-    proteins: number;
-    fat: number;
-    carbohydrates: number;
-    calories: number;
-    price: number;
-    image: string;
-    image_mobile: string;
-    image_large: string;
-    __v: number;
-  }[];
+  listData: ingredientType[];
 };
 
 export default function BurgerIngredients(props: BurgerIngredientsProps) {

@@ -8,22 +8,10 @@ import {
 import Component from "./component";
 import IngredientDetails from "../ingredient-details/ingredient-details";
 import OrderDetails from "../order-details/order-details";
+import { ingredientType } from "../../utils/types";
 
 type BurgerConstructorProps = {
-  listData: {
-    _id: string;
-    name: string;
-    type: string;
-    proteins: number;
-    fat: number;
-    carbohydrates: number;
-    calories: number;
-    price: number;
-    image: string;
-    image_mobile: string;
-    image_large: string;
-    __v: number;
-  }[];
+  listData: ingredientType[];
 };
 
 export default function BurgerConstructor(props: BurgerConstructorProps) {

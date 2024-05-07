@@ -22,6 +22,12 @@ export default function OrderDetails({ isOpen, setOpen }: OrderDetailsProps) {
     return () => document.removeEventListener("keydown", pressESC);
   }, []);
 
+  const handleClick = (e: any) => {
+    if (!e.target.closest("[data-id=modal]")) {
+      setOpen(false)
+    }
+  }
+
   return (
     orderRoot &&
     createPortal(
@@ -29,9 +35,9 @@ export default function OrderDetails({ isOpen, setOpen }: OrderDetailsProps) {
         <>
           <div
             className={styles["order-details"]}
-            onClick={() => setOpen(false)}
+            onClick={handleClick}
           >
-            <div className={styles["order-details__card"]}>
+            <div className={styles["order-details__card"]} data-id="modal">
               <div className={styles["order-details__head"]}>
                 <svg
                   onClick={() => setOpen(false)}

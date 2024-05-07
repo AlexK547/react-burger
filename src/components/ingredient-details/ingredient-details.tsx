@@ -1,26 +1,14 @@
 import { createPortal } from "react-dom";
 import styles from "./ingredient-details.module.css";
 import { useEffect } from "react";
+import { ingredientType } from "../../utils/types";
 
 const modalRoot = document.getElementById("react-modals");
 
 type IngredientDetailsProps = {
   isOpen: boolean;
   setOpen: Function;
-  itemModal: {
-    _id: string;
-    name: string;
-    type: string;
-    proteins: number;
-    fat: number;
-    carbohydrates: number;
-    calories: number;
-    price: number;
-    image: string;
-    image_mobile: string;
-    image_large: string;
-    __v: number;
-  };
+  itemModal: ingredientType;
   clearItem: Function;
 };
 
@@ -41,6 +29,12 @@ export default function IngredientDetails({
     return () => document.removeEventListener("keydown", pressESC);
   }, []);
 
+  const handleClick = (e: any) => {
+    if (!e.target.closest("[data-id=modal]")) {
+      setOpen(false)
+    }
+  }
+
   return (
     modalRoot &&
     createPortal(
@@ -48,9 +42,9 @@ export default function IngredientDetails({
         {isOpen && (
           <div
             className={styles["modal-overlay"]}
-            onClick={() => setOpen(false)}
+            onClick={handleClick}
           >
-            <div className={styles["modal-card"]}>
+            <div className={styles["modal-card"]} data-id="modal">
               <div className={styles.modal__head}>
                 <h2 className={styles["modal__head-title"]}>
                   Детали ингредиента
