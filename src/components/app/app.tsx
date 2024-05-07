@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import AppHeader from "./components/app-header/app-header";
-import BurgerConstructor from "./components/burger-constructor/burger-constructor";
-import BurgerIngredients from "./components/burger-ingredients/burger-ingredients";
+import AppHeader from "../app-header/app-header";
+import BurgerConstructor from "../burger-constructor/burger-constructor";
+import BurgerIngredients from "../burger-ingredients/burger-ingredients";
 // import { data } from "./utils/data";
 
 const URLAddress = "https://norma.nomoreparties.space/api/ingredients";
@@ -42,7 +42,7 @@ function App() {
       <main className="main">
         {!data.loading && !data.hasError && data.productData.length && (
           <>
-            <BurgerIngredients listData={data.productData}/>
+            <BurgerIngredients listData={data.productData} />
             <BurgerConstructor listData={data.productData} />
           </>
         )}
