@@ -8,13 +8,11 @@ import { ingredientType } from "../../utils/types";
 
 type ComponentProps = {
   item: ingredientType;
-  isDragIcon: boolean;
   openModal: Function;
 };
 
 export default function Component({
   item,
-  isDragIcon,
   openModal,
 }: ComponentProps) {
   const press = () => {

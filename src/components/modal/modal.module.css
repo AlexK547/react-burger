@@ -1,0 +1,44 @@
+.modal-overlay {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(130, 130, 130, 0.5);
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal {
+    position: relative;
+    z-index: 100;
+    border-radius: 40px;
+    padding: 40px;
+    width: 720px;
+    background: #1C1C21;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal__head {
+    width: 640px;
+    height: 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.modal__head-title {
+    font-family: "JetBrains Mono", sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 111%;
+    color: #F2F2F3;
+    margin: auto 0;
+}
+.modal__head > svg {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}

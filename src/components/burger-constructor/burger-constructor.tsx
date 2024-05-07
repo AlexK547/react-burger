@@ -2,13 +2,11 @@ import React, { useState } from "react";
 import styles from "./burger-constructor.module.css";
 import {
   ConstructorElement,
-  CurrencyIcon,
-  LockIcon,
+  CurrencyIcon
 } from "@ya.praktikum/react-developer-burger-ui-components";
 import Component from "./component";
-import IngredientDetails from "../ingredient-details/ingredient-details";
-import OrderDetails from "../order-details/order-details";
 import { ingredientType } from "../../utils/types";
+import ModalOverlay from "../modal/modal-overlay";
 
 type BurgerConstructorProps = {
   listData: ingredientType[];
@@ -22,31 +20,35 @@ export default function BurgerConstructor(props: BurgerConstructorProps) {
   const [sauces, setSauces] = useState(listSauces);
   const [mains, setMains] = useState(listMains);
   const [isOpenModal, setIsOpenModal] = useState(false);
-  const [itemModal, setItemModal] = useState(null);
-  const [isOpenOrderDetails, setIsOpenOrderDetails] = useState(false);
+  const [isIngredient, setIsIngredient] = useState(false);
+  const [itemModal, setItemModal] = useState<ingredientType | null>(null);
 
-  const openModal = (item: any) => {
+  const openModalIngredient = (item: ingredientType) => {
     setIsOpenModal(true);
+    setIsIngredient(true);
+    setItemModal(item);
+  };
+  const openModalOrder = (item: ingredientType) => {
+    setIsOpenModal(true);
+    setIsIngredient(false);
     setItemModal(item);
   };
 
   return (
     <section className={styles["burger-constructor"]}>
+
       {itemModal && (
-        <IngredientDetails
+        <ModalOverlay
           isOpen={isOpenModal}
           setOpen={setIsOpenModal}
+          isIngredient={isIngredient}
           itemModal={itemModal}
           clearItem={setItemModal}
-        ></IngredientDetails>
+        />
       )}
-      <OrderDetails
-        setOpen={setIsOpenOrderDetails}
-        isOpen={isOpenOrderDetails}
-      />
 
       <div className={styles.components}>
-        <div className={styles["component_top-bottom"]}>
+        <div className={styles["component_top-bottom"]} onClick={() => openModalIngredient(buns[0])}>
           <ConstructorElement
             type="top"
             isLocked={true}
@@ -60,48 +62,41 @@ export default function BurgerConstructor(props: BurgerConstructorProps) {
           <Component
             key={1}
             item={sauces[1]}
-            isDragIcon={true}
-            openModal={openModal}
+            openModal={openModalIngredient}
           />
           <Component
             key={2}
             item={mains[2]}
-            isDragIcon={true}
-            openModal={openModal}
+            openModal={openModalIngredient}
           />
           <Component
             key={3}
             item={mains[3]}
-            isDragIcon={true}
-            openModal={openModal}
+            openModal={openModalIngredient}
           />
           <Component
             key={4}
             item={mains[4]}
-            isDragIcon={true}
-            openModal={openModal}
+            openModal={openModalIngredient}
           />
           <Component
             key={5}
             item={mains[4]}
-            isDragIcon={true}
-            openModal={openModal}
+            openModal={openModalIngredient}
           />
           <Component
             key={6}
             item={mains[5]}
-            isDragIcon={true}
-            openModal={openModal}
+            openModal={openModalIngredient}
           />
           <Component
             key={7}
             item={mains[6]}
-            isDragIcon={true}
-            openModal={openModal}
+            openModal={openModalIngredient}
           />
         </div>
 
-        <div className={styles["component_top-bottom"]}>
+        <div className={styles["component_top-bottom"]} onClick={() => openModalIngredient(buns[0])}>
           <ConstructorElement
             type="bottom"
             isLocked={true}
@@ -120,7 +115,7 @@ export default function BurgerConstructor(props: BurgerConstructorProps) {
         <button
           type="button"
           className={styles.info__btn}
-          onClick={() => setIsOpenOrderDetails(true)}
+          onClick={() => openModalOrder(buns[0])}
         >
           Оформить заказ
         </button>

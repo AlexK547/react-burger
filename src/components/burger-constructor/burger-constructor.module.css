@@ -30,6 +30,7 @@
 }
 .component_top-bottom {
     margin-left: 30px;
+    cursor: pointer;
 }
 
 .ingredient {
