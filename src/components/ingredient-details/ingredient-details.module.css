@@ -1,0 +1,32 @@
+.modal__img {
+    width: 480px;
+    height: 240px;
+    margin-bottom: 16px;
+}
+.modal__description {
+    height: 30px;
+    font-family: "JetBrains Mono", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 125%;
+    text-align: center;
+    color: #F2F2F3;
+    margin-bottom: 32px;
+}
+.modal__composition {
+    display: flex;
+    gap: 20px;
+}
+.modal__composition-item {
+    height: 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "JetBrains Mono", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    text-align: center;
+    color: #8585AD;
+}

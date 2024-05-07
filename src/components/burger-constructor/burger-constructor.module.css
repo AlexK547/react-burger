@@ -1,0 +1,111 @@
+.burger-constructor {
+    width: 600px;
+}
+
+.components {
+    margin-top: 100px;
+    width: 100%;
+    height: 656px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+
+.component {
+    width: 568px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+.component__items {
+    height: 464px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.component_top-bottom {
+    margin-left: 30px;
+    cursor: pointer;
+}
+
+.ingredient {
+    padding-left: 24px;
+    padding-right: 32px;
+    width: 536px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.ingredient__img {
+    width: 80px;
+    height: 40px;
+}
+.ingredient__description {
+    /* width: 254px; */
+    height: 48px;
+    font-family: "JetBrains Mono", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: #f2f2f3;
+}
+.ingredient__price {
+    /* width: 62px; */
+    height: 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: "Iceland", sans-serif;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 86%;
+    text-align: right;
+    color: #f2f2f3;
+}
+
+.info {
+    margin-top: 40px;
+    width: 568px;
+    height: 64px;
+    display: flex;
+    justify-content: flex-end;
+}
+.info__price {
+    width: 119px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: "Iceland", sans-serif;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 75%;
+    text-align: right;
+    color: #f2f2f3;
+}
+.info__price svg {
+    width: 36px;
+    height: 36px;
+}
+.info__btn {
+    margin-left: 40px;
+    border-radius: 64px;
+    border: none;
+    width: 215px;
+    height: 64px;
+    background: linear-gradient(45deg, #801ab2 0%, #4c4cff 100%);
+
+    font-family: "JetBrains Mono", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    text-align: center;
+    color: #f2f2f3;
+    cursor: pointer;
+}
